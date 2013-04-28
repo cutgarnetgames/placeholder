@@ -1,5 +1,8 @@
 package net.cutgar.mnml.model;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import net.cutgar.mnml.PlayState;
 
 import org.flixel.FlxGroup;
@@ -12,6 +15,9 @@ public class Level {
 	
 	public float levelwidth;
 	public float levelheight;
+	
+	public int bgcolor = -1;
+	public List<String> terminal = new LinkedList<String>();
 	
 	public FlxGroup enemies = new FlxGroup();
 	public FlxGroup text = new FlxGroup();

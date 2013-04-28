@@ -26,7 +26,7 @@ public class TitleState extends FlxState {
 		t.setFont("atari.TTF");
 		add(t);
 		
-		FlxText ft = new FlxText(0, FlxG.height-16, FlxG.width-4, "[spacebar]");
+		FlxText ft = new FlxText(0, FlxG.height-16, FlxG.width-4, "if(FlxG.keys.SPACE){begin()}");
 		ft.setSize(8);
 		ft.setColor(PlayState.GREY);
 		ft.setAlignment("right");

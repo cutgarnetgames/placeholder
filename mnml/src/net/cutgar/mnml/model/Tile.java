@@ -70,6 +70,7 @@ public class Tile extends FlxSprite {
 						//TODO: possible bug here
 //						self.kill();
 						setSolid(false);
+						allowCollisions = NONE;
 					}
 				}
 			});
@@ -88,6 +89,26 @@ public class Tile extends FlxSprite {
 	public void setRandomColour(){
 		
 		makeGraphic(PlayState.SIDE, PlayState.SIDE, 0xff000000 | new Random().nextInt());
+	}
+
+	public void touchQuietly() {
+		if(fades && !touched){
+			fadeTimer = new FlxTimer();
+			fadeTimer.start(fadeTime/10, 10, new IFlxTimer() {
+				
+				@Override
+				public void callback(FlxTimer timer) {
+					self.setAlpha(0.1f * timer.getLoopsLeft());
+					if(timer.getLoopsLeft() == 0){
+//						self.kill();
+						setSolid(false);
+						allowCollisions = NONE;
+					}
+				}
+			});
+		}
+		
+		touched = true;
 	}
 
 }
